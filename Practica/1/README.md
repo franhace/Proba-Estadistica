@@ -1,0 +1,2 @@
+* [Video Sobre R](https://photos.google.com/share/AF1QipOIi4ndn3ofy5LSrvW6YyP8OO2hcoOXOgA5-FRcMcy3Ktj9g5skDF_mRBR1uFz-3w/photo/AF1QipOBQ1AOFcglsECcvLgFWVBOqbiqpmHQpfNAC_m7?key=SFRnQ09QOFRBQTRZVVlEc1Fwemt1RXlXUnVXNTdn)
+* [Bayes](https://www.youtube.com/watch?v=HZGCoVF3YvM)
