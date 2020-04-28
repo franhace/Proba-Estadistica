@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PLJ" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Probabilidades-y-Estadistica-2019-2doC" vcs="Git" />
   </component>
 </project>
