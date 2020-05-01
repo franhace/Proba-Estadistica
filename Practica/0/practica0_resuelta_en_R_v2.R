@@ -143,6 +143,9 @@ alumnos_elegidos
 #ej 8
 library(PASWR2)
 help("TITANIC3")
+TITANIC3
+length(names(TITANIC3))
+sobrevivieron_clase<-TITANIC3[TITANIC3$pclass[TITANIC3$survived==1]]
 
 #ej 8a
 prop_clas_1 <-  mean(TITANIC3$survived[TITANIC3$pclass == "1st"])
@@ -150,6 +153,8 @@ prop_clas_2 <-  mean(TITANIC3$survived[TITANIC3$pclass == "2nd"])
 prop_clas_3 <-  mean(TITANIC3$survived[TITANIC3$pclass == "3rd"])
 
 #ej 8b
+pop4 <- mean(TITANIC3$survived[TITANIC3$pclass == "1st" & TITANIC3$sex=="male"] )
+pop5 <- mean(TITANIC3$survived[TITANIC3$pclass == "3rd" & TITANIC3$sex=="female"] )
 cuales <- TITANIC3$pclass == "1st" & TITANIC3$sex == "female"
 mean(TITANIC3$survived[cuales])
 
@@ -198,6 +203,8 @@ aNA<-c(rep(1,20),rep(NA,80),rep(3,60),rep(4,40))
 par(mfrow=c(1,2))    # set the plotting area into a 1*2 array
 hist(a,ylim=c(0,80))
 hist(aNA,ylim=c(0,80))
+
+# poniendo un 1x1 array se pisan en el grafico
 par(mfrow=c(1,1))
 
 histogram(a,ylim=c(0,80))
@@ -206,8 +213,10 @@ histogram(aNA,ylim=c(0,80))
 ##ej 8d
 
 sort(TITANIC3$age[TITANIC3$sex == "female" & TITANIC3$survived == 1])
-
+sort(unique(TITANIC3$age[TITANIC3$sex == "female" & TITANIC3$survived == 1]))
 ## ej9
+
+
 
 help(CARS2004)
 CARS2004
