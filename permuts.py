@@ -41,7 +41,7 @@ perms_vocales = [''.join(p) for p in permutations('aaiioo')]
 vocales = len(set(perms_vocales))
 
 #(Conso - condiciones)*(Vocales)
-print((consonantes-condiciones)*vocales)
+# print((consonantes-condiciones)*vocales)
 
 ######################## ######################## ######################## ########################
 
@@ -83,15 +83,17 @@ def divisores_enteros(lista_divisores):
             lista2.append("X")
     return lista2
 
-print(lista_con_todos_divisores)
-print(divisores_enteros(lista_con_todos_divisores))
+# print(lista_con_todos_divisores)
+# print(divisores_enteros(lista_con_todos_divisores))
 
 ######################## ######################## ######################## ########################
+print(bin(1365))
+
 
 def algo_div(numero):
     numero_original = numero
     result = ""
-    divisor = 2
+    divisor = -14
     while numero != 0:
         remainder = numero % divisor  # gives the exact remainder
         print("resto, numero:", remainder, numero)
@@ -102,7 +104,7 @@ def algo_div(numero):
         # print(result)
     print("The binary representation of %d is %s" %(numero_original, result))
 
-print(algo_div(1365))
+print(algo_div(133))
 
 
 def gcd(a, b):
@@ -115,7 +117,7 @@ def gcd(a, b):
 
     return a
 
-print(gcd(210,144))
+print(gcd(13,111))
 
 
 def extendedEuclideanAlgorithm(a, b):
@@ -134,6 +136,6 @@ def extendedEuclideanAlgorithm(a, b):
         a, b, x2, x1, y2, y1 = b, r, x1, x, y1, y
 
     return (x2, y2, a)
-print(extendedEuclideanAlgorithm(210, 144))
+print(extendedEuclideanAlgorithm(133, -14))
 # (https://jeremykun.com/tag/division-algorithm/)
 ######################## ######################## ######################## ########################
