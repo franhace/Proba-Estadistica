@@ -9,36 +9,36 @@
 #
 # ( Soy alumno )
 
-from itertools import permutations
-
-def permuts(string):
-    permutaciones = [''.join(p) for p in permutations(string)]
-    not_nm_or_rtc = 0
-    for permutacion in permutaciones:
-        # posicion de cada letra
-        pos_n = permutacion.find('n')
-        pos_m = permutacion.find('m')
-        pos_r = permutacion.find('r')
-        pos_t = permutacion.find('t')
-        pos_c = permutacion.find('c')
-        # vemos si no cumple alguna de las condiciones
-        if not(pos_n < pos_m) or not(pos_r < pos_t < pos_c):
-            not_nm_or_rtc += 1
-        # Permutaciones que cumplen con ambas condiciones
-        # else:
-            # print(permutacion)
-    return not_nm_or_rtc
-#Consonantes
-perms_consonantes = [''.join(p) for p in permutations("cmbntrv")]
-consonantes = len(perms_consonantes)
-
-#Condiciones
-condiciones = permuts("cmbntrv")
-
-#Vocales
-perms_vocales = [''.join(p) for p in permutations('aaiioo')]
-# eliminamos los casos a1a2, a2a1, etc
-vocales = len(set(perms_vocales))
+# from itertools import permutations
+#
+# def permuts(string):
+#     permutaciones = [''.join(p) for p in permutations(string)]
+#     not_nm_or_rtc = 0
+#     for permutacion in permutaciones:
+#         # posicion de cada letra
+#         pos_n = permutacion.find('n')
+#         pos_m = permutacion.find('m')
+#         pos_r = permutacion.find('r')
+#         pos_t = permutacion.find('t')
+#         pos_c = permutacion.find('c')
+#         # vemos si no cumple alguna de las condiciones
+#         if not(pos_n < pos_m) or not(pos_r < pos_t < pos_c):
+#             not_nm_or_rtc += 1
+#         # Permutaciones que cumplen con ambas condiciones
+#         # else:
+#             # print(permutacion)
+#     return not_nm_or_rtc
+# #Consonantes
+# perms_consonantes = [''.join(p) for p in permutations("cmbntrv")]
+# consonantes = len(perms_consonantes)
+#
+# #Condiciones
+# condiciones = permuts("cmbntrv")
+#
+# #Vocales
+# perms_vocales = [''.join(p) for p in permutations('aaiioo')]
+# # eliminamos los casos a1a2, a2a1, etc
+# vocales = len(set(perms_vocales))
 
 #(Conso - condiciones)*(Vocales)
 # print((consonantes-condiciones)*vocales)
@@ -91,44 +91,45 @@ def lexicographical_permutations(str):
             str[q] = temp
 
 
-s = 'congruencia'
+s = 'pruebas'
 s = list(s)
 s.sort()
-# lexicographical_permutations(s)
-
+# s = [i for i in lexicographical_permutations(s)]
+# print(len(s))
+# print(s)
 
 # ii) forma de que vocales si o si entre n's
-def permuts(string):
-    permutaciones = [''.join(p) for p in permutations(string)]
-    not_nm_or_rtc = 0
-    for permutacion in permutaciones:
-        # posicion de cada letra
-        pos_n = permutacion.find('n')
-        pos_m = permutacion.find('m')
-        pos_r = permutacion.find('r')
-        pos_t = permutacion.find('t')
-        pos_c = permutacion.find('c')
-        # vemos si no cumple alguna de las condiciones
-        if not(pos_n < pos_m) or not(pos_r < pos_t < pos_c):
-            not_nm_or_rtc += 1
-        # Permutaciones que cumplen con ambas condiciones
-        # else:
-            # print(permutacion)
-    return not_nm_or_rtc
-#Consonantes
-perms_consonantes = [''.join(p) for p in permutations("cmbntrv")]
-# consonantes = len(perms_consonantes)
-
-#Condiciones
-# condiciones = permuts("cmbntrv")
-
-#Vocales
-perms_vocales = [''.join(p) for p in permutations('aaiioo')]
-# eliminamos los casos a1a2, a2a1, etc
-# vocales = len(set(perms_vocales))
-
-#(Conso - condiciones)*(Vocales)
-# print((consonantes-condiciones)*vocales)
+# def permuts(string):
+#     permutaciones = [''.join(p) for p in permutations(string)]
+#     not_nm_or_rtc = 0
+#     for permutacion in permutaciones:
+#         # posicion de cada letra
+#         pos_n = permutacion.find('n')
+#         pos_m = permutacion.find('m')
+#         pos_r = permutacion.find('r')
+#         pos_t = permutacion.find('t')
+#         pos_c = permutacion.find('c')
+#         # vemos si no cumple alguna de las condiciones
+#         if not(pos_n < pos_m) or not(pos_r < pos_t < pos_c):
+#             not_nm_or_rtc += 1
+#         # Permutaciones que cumplen con ambas condiciones
+#         # else:
+#             # print(permutacion)
+#     return not_nm_or_rtc
+# #Consonantes
+# perms_consonantes = [''.join(p) for p in permutations("cmbntrv")]
+# # consonantes = len(perms_consonantes)
+#
+# #Condiciones
+# # condiciones = permuts("cmbntrv")
+#
+# #Vocales
+# perms_vocales = [''.join(p) for p in permutations('aaiioo')]
+# # eliminamos los casos a1a2, a2a1, etc
+# # vocales = len(set(perms_vocales))
+#
+# #(Conso - condiciones)*(Vocales)
+# # print((consonantes-condiciones)*vocales)
 
 
 ######################################################################
@@ -140,52 +141,52 @@ Ej: Hallar todos los n€N / 2n-2/n+4
 """
 
 
-import math
-
-def divisorGenerator(n):
-    large_divisors = []
-    for i in range(1, int(math.sqrt(n) + 1)):
-        if n % i == 0:
-            yield i
-            if i*i != n:
-                large_divisors.append(n / i)
-    for divisor in reversed(large_divisors):
-        yield int(divisor)
-
-lista_divisores_pos= list(divisorGenerator(9))
-
-def negativizar(lista_divisores_pos):
-    lista_con_negs = []
-    for i in lista_divisores_pos:
-        print(i)
-        lista_con_negs.append(i)
-        lista_con_negs.append(-i)
-    return lista_con_negs
-
-lista_con_todos_divisores = negativizar(lista_divisores_pos)
-
-def divisores_enteros(lista_divisores):
-    lista2 = []
-    for i in lista_divisores:
-        # cambiar r por formula?? Prono a errores
-        # r = 2, 3, 4
-        # print(r[0])
-
-        # Escribir formula del n a despejar aca!
-        r = (i-1)/2
-
-        # print(i, r)
-        if float(r).is_integer():
-            lista2.append(int(r))
-        else:
-            lista2.append("X")
-    return lista2
-
-print(lista_con_todos_divisores)
-print(divisores_enteros(lista_con_todos_divisores))
+# import math
+#
+# def divisorGenerator(n):
+#     large_divisors = []
+#     for i in range(1, int(math.sqrt(n) + 1)):
+#         if n % i == 0:
+#             yield i
+#             if i*i != n:
+#                 large_divisors.append(n / i)
+#     for divisor in reversed(large_divisors):
+#         yield int(divisor)
+#
+# lista_divisores_pos= list(divisorGenerator(246))
+#
+# def negativizar(lista_divisores_pos):
+#     lista_con_negs = []
+#     for i in lista_divisores_pos:
+#         print(i)
+#         lista_con_negs.append(i)
+#         lista_con_negs.append(-i)
+#     return lista_con_negs
+#
+# lista_con_todos_divisores = negativizar(lista_divisores_pos)
+#
+# def divisores_enteros(lista_divisores):
+#     lista2 = []
+#     for i in lista_divisores:
+#         # cambiar r por formula?? Prono a errores
+#         # r = 2, 3, 4
+#         # print(r[0])
+#
+#         # Escribir formula del n a despejar aca!
+#         r = (i-6)/3
+#
+#         # print(i, r)
+#         if float(r).is_integer():
+#             lista2.append(int(r))
+#         else:
+#             lista2.append("X")
+#     return lista2
+#
+# print(lista_con_todos_divisores)
+# print(divisores_enteros(lista_con_todos_divisores))
 
 ######################## ######################## ######################## ########################
-print(bin(1365))
+# print(bin(1365))
 
 
 def algo_div(numero):
@@ -205,17 +206,17 @@ def algo_div(numero):
 # print(algo_div(133))
 
 
-def gcd(a, b):
-    if abs(a) < abs(b):
-        return gcd(b, a)
-
-    while abs(b) > 0:
-        q, r = divmod(a, b)
-        a, b = b, r
-
-    return a
-
-print(gcd(990,187))
+# def gcd(a, b):
+#     if abs(a) < abs(b):
+#         return gcd(b, a)
+#
+#     while abs(b) > 0:
+#         q, r = divmod(a, b)
+#         a, b = b, r
+#
+#     return a
+#
+# print(gcd(990,187))
 
 
 # Algo de la division de euclides
@@ -236,7 +237,7 @@ def extendedEuclideanAlgorithm(a, b):
 
     return (x2, y2, a)
 print()
-print(extendedEuclideanAlgorithm(1038, 14))
+# print(extendedEuclideanAlgorithm(1038, 14))
 # (https://jeremykun.com/tag/division-algorithm/)
 ######################## ######################## ######################## ########################
 
@@ -272,4 +273,100 @@ def todos_valores_que_cumples(comienzo, fin):
     x = set(x1) & set(x2)
     return x
 
-print(todos_valores_que_cumples(-200000,1000000))
+# print(todos_valores_que_cumples(-200000,1000000))
+
+#############################################################################
+from itertools import permutations
+
+def permuts(string):
+    permutaciones = [''.join(p) for p in permutations(string)]
+    cuantas_vocales_juntas = 0
+    cuantas_3vocales_juntas = 0
+    tres_juntas = 0
+    for permutacion in permutaciones:
+        # posicion de cada letra
+        pos_u = permutacion.find('u')
+        pos_e = permutacion.find('e')
+        pos_a = permutacion.find('a')
+        # vemos si cumple alguna de las condiciones
+        if abs(pos_u - pos_e) <=1 or abs(pos_e - pos_a) <=1:
+            cuantas_vocales_juntas += 1
+            if abs(pos_u - pos_e) <=1 and abs(pos_e - pos_a) <=1:
+                # print(permutacion)
+                # Los restamos porque ya los contó aca arriba
+                cuantas_vocales_juntas -= 1
+                tres_juntas += 1
+
+        # Permutaciones que cumplen con ambas condiciones
+        # else:
+            # print(permutacion)
+    print(tres_juntas)
+#     return cuantas_vocales_juntas
+#
+# perms = [''.join(p) for p in permutations("pruebas")]
+# perms_totales = len(set(perms))
+# print(perms_totales)
+# condiciones = permuts("pruebas")
+# print(condiciones)
+# #Respuesta
+# print(5040-condiciones)
+
+import math
+
+def gcd(a, b):
+    if abs(a) < abs(b):
+        return gcd(b, a)
+
+    while abs(b) > 0:
+        q, r = divmod(a, b)
+        a, b = b, r
+
+    return a
+
+print(gcd(990,187))
+
+def divisorGenerator(n):
+    large_divisors = []
+    for i in range(1, int(math.sqrt(n) + 1)):
+        if n % i == 0:
+            yield i
+            if i*i != n:
+                large_divisors.append(n / i)
+    for divisor in reversed(large_divisors):
+        yield int(divisor)
+
+lista_divisores_pos= list(divisorGenerator(246))
+
+def negativizar(lista_divisores_pos):
+    lista_con_negs = []
+    for i in lista_divisores_pos:
+        print(i)
+        lista_con_negs.append(i)
+        lista_con_negs.append(-i)
+    return lista_con_negs
+
+lista_con_todos_divisores = negativizar(lista_divisores_pos)
+
+def divisores_enteros(lista_divisores):
+    lista2 = []
+    lista3 = []
+    lista4 = []
+    for a in range(0,100):
+        for b in range(0,100):
+            x = 7*a -3*b
+            y = 2*a + 5*b
+            tup = (a,b)
+            mcd = gcd(x,y)
+            t_m = (tup,mcd)
+            if mcd in lista_divisores_pos:
+                lista2.append(tup)
+                lista3.append(mcd)
+                lista4.append(t_m)
+            # else:
+                # lista2.append("X")
+    print(set(lista3))
+    print(lista4)
+    # return lista2
+
+print(lista_con_todos_divisores)
+print(divisores_enteros(lista_con_todos_divisores))
