@@ -301,14 +301,14 @@ def permuts(string):
         # else:
             # print(permutacion)
     print(tres_juntas)
-#     return cuantas_vocales_juntas
+    return cuantas_vocales_juntas
 #
-# perms = [''.join(p) for p in permutations("pruebas")]
-# perms_totales = len(set(perms))
-# print(perms_totales)
-# condiciones = permuts("pruebas")
-# print(condiciones)
-# #Respuesta
+perms = [''.join(p) for p in permutations("pruebas")]
+perms_totales = len(set(perms))
+print(perms_totales)
+condiciones = permuts("pruebas")
+print(condiciones)
+#Respuesta
 # print(5040-condiciones)
 
 import math
