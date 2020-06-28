@@ -11,4 +11,4 @@
 ### [https://www.youtube.com/watch?v=oHcrna8Fk18&list=PLvxOuBpazmsNIHP5cz37oOPZx0JKyNszN]
 ### [https://seeing-theory.brown.edu/probability-distributions/index.html]
 ### [https://courses.edx.org/courses/course-v1:HarvardX+STAT110x+1T2020/courseware/b3ac05d0c5324025b4a87f83b40d9738/66db852c8b514a588044df1ddcbfa9cf/?child=first]
-
+### [Tutoriales geniales para bajar en pdf](https://postdata-statistics.com/)

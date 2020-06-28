@@ -370,3 +370,29 @@ def divisores_enteros(lista_divisores):
 
 print(lista_con_todos_divisores)
 print(divisores_enteros(lista_con_todos_divisores))
+
+######## Para calcular rapido la potencia a la cual queda elevado un a al usar PTF ######
+## Hallar el resto de 33^(1427) mod 5
+# El b es por si hay algo tipo: b.a^(n)≡??(p)
+
+a = 3
+n = 385
+p = 16 # OJO CON P QUE TIENE QUE SER PRIMO!!!!!!!!!!!!!!!!!!!
+b = 0
+resto_a_mod_p = divmod(a, p)
+resto_n_mod_p_1 = divmod(n, p-1)
+print(resto_a_mod_p)
+print(resto_n_mod_p_1)
+print("{}^({})≡??({})".format(a, n, p))
+print("{}≡{}({})".format(a, resto_a_mod_p[1], p))
+print("({}^({}))^({}).{}^({})≡???({})".format(a, p-1, resto_n_mod_p_1[0], a, resto_n_mod_p_1[1], p))
+resto_p_1_mod_p = divmod((resto_a_mod_p[1])**resto_n_mod_p_1[1], p)
+if b != 0:
+    resto_p_1_mod_p = divmod(((resto_a_mod_p[1]) ** resto_n_mod_p_1[1])*b, p)
+print(resto_p_1_mod_p)
+print("{}^{}≡{}({})".format(resto_a_mod_p[1], resto_n_mod_p_1[1], resto_p_1_mod_p[1], p))
+
+
+## Para resolver cosas de la forma 7^(13)X ≡ 5 (11)
+# 1) Resolvemos 7^(13) ≡ ??=c (11)
+# 2) Resolvemos cX ≡ 5 (11)
