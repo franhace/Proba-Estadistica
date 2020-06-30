@@ -21,7 +21,7 @@ zz = complex(a, b)
 
 # modulo al cuadrado de z
 def modcuad(z):
-    modcuad= (int(z.real+z.imag))
+    modcuad = (int(z.real+z.imag))
     return modcuad
 
 # modulo de z
@@ -51,5 +51,14 @@ c, d = partes(yy)
 print(c, d)
 # print(conj(c,d))
 
+
+uu = complex(2, -2)
+e, f = partes(uu)
+print("inverso:{} / {}".format(conj(partes(uu)[0],partes(uu)[1]), modcuad(uu)))
+print(-i*uu)
+import math
+print(math.cos(math.radians(15*(cmath.pi)/2)))
+print(cmath.cos(15*cmath.pi/2))
 # coordenadas polares
 # print(cmath.polar(z))
+print(math.radians())
