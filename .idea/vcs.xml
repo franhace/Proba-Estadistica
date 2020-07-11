@@ -2,8 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ciencia-de-datos-con-R_Fundamentos-Estadisticos_2020" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/LeJ" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/PLJ" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Probabilidades-y-Estadistica-2019-2doC" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/R2" vcs="Git" />
   </component>
 </project>
