@@ -1,0 +1,97 @@
+
+resultados_alumnos <- read.table("resultados_corregidos.txt")
+
+n10l1 <- resultados_alumnos[,1]
+n10l2 <- resultados_alumnos[,2]
+n50l1 <- resultados_alumnos[,3]
+n50l2 <- resultados_alumnos[,4]
+
+par(mfrow=c(1,2))
+Nrep <- nrow(resultados_alumnos[!is.na(resultados_alumnos[,1]),])
+
+plot(c(min(n10l1),max(n10l2)),c(0,Nrep+1), type="n", xlab = "intervalo",
+     ylab = "alumno")
+for(i in 1:Nrep){
+polygon(c(n10l1[i],n10l2[i],n10l1[i]),c(i,i,i))
+}
+abline(v=2.1)
+
+mean(n10l1<2.1&n10l2>2.1)
+
+sum(n10l1<2.1&n10l2>2.1)
+
+# Los que no engancharon al 2.1 en su intervalo revisenlo!!
+
+plot(c(min(n10l1),max(n10l2)),c(0,Nrep+1), type="n", xlab = "intervalo",
+     ylab = "alumno")
+for(i in 1:Nrep){
+  polygon(c(n50l1[i],n50l2[i],n50l1[i]),c(i,i,i), col = 2)
+}
+abline(v=2.1)
+
+mean(n50l1<2.1&n50l2>2.1)
+
+sum(n50l1<2.1&n50l2>2.1)
+
+# Los que no engancharon al 2.1 en su intervalo revisenlo!!
+
+###
+
+# simulacion
+  
+n<-10
+tita <- 2.1
+Nrep <- 1000
+long <- lim_inf <- lim_sup <- 0
+for(j in 1:Nrep){
+datos <- rexp(n, tita)
+alpha <- 0.05
+lim_inf[j] <- qchisq(alpha/2,2*n)/(2*sum(datos))
+lim_sup[j] <- qchisq(1-alpha/2,2*n)/(2*sum(datos))
+}
+
+mean(lim_inf<2.1&lim_sup>2.1)
+mean(lim_sup-lim_inf)
+
+
+par(mfrow=c(1,2))
+lim_plot1 <- min(lim_inf)
+lim_plot2 <- max(lim_sup)
+plot(c(lim_plot1,lim_plot2),c(0,Nrep+1), type="n", xlab = "intervalo",
+     ylab = "repeticion")
+for(i in 1:Nrep){
+  polygon(c(lim_inf[i],lim_sup[i],lim_inf[i]),c(i,i,i))
+}
+abline(v=2.1)
+
+mean(lim_inf<2.1&lim_sup>2.1)
+
+sum(lim_inf<2.1&lim_sup>2.1)
+
+
+
+n<-50
+tita <- 2.1
+set.seed(56793)
+Nrep <- 64
+long <- lim_inf <- lim_sup <- 0
+for(j in 1:Nrep){
+  datos <- rexp(n, tita)
+  alpha <- 0.05
+  lim_inf[j] <- qchisq(alpha/2,2*n)/(2*sum(datos))
+  lim_sup[j] <- qchisq(1-alpha/2,2*n)/(2*sum(datos))
+}
+
+mean(lim_inf<2.1&lim_sup>2.1)
+mean(lim_sup-lim_inf)
+
+plot(c(lim_plot1,lim_plot2),c(0,Nrep+1), type="n", xlab = "intervalo",
+     ylab = "repeticion")
+for(i in 1:Nrep){
+  polygon(c(lim_inf[i],lim_sup[i],lim_inf[i]),c(i,i,i))
+}
+abline(v=2.1)
+
+mean(lim_inf<2.1&lim_sup>2.1)
+
+sum(lim_inf<2.1&lim_sup>2.1)
