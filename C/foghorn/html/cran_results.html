@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Table of the CRAN check results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cran_results {foghorn}"><tr><td>cran_results {foghorn}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Table of the CRAN check results</h2>
+
+<h3>Description</h3>
+
+<p>Make a table that summarizes the results of the CRAN checks for a
+set of packages specified by a maintainer or by names.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cran_results(
+  email = NULL,
+  pkg = NULL,
+  show = c("error", "fail", "warn", "note", "ok"),
+  src = c("website", "crandb"),
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>email</code></td>
+<td>
+<p>email address for package maintainers (character
+vector)</p>
+</td></tr>
+<tr valign="top"><td><code>pkg</code></td>
+<td>
+<p>package names (character vector)</p>
+</td></tr>
+<tr valign="top"><td><code>show</code></td>
+<td>
+<p>columns of the data frame to show (all are shown by
+default)</p>
+</td></tr>
+<tr valign="top"><td><code>src</code></td>
+<td>
+<p>if <code>"website"</code> the data is scrapped from the CRAN
+website, if <code>"crandb"</code> the data is downloaded from a RDS
+file hosted on the CRAN servers (which is used to generate the
+information found on the CRAN website).</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments to control where the data from the
+check results are coming from and how they are downloaded from
+the CRAN servers (see Details section).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Given the email address of a package maintainer, and/or a vector
+of package names, returns a tibble that allows you to detect
+potential issues with your packages on CRAN.
+</p>
+<p>Where does the data come from?
+</p>
+<p>The data comes from the CRAN servers. They generate RDS files that
+contains information regarding the results of the checks for all
+the packages, and all the flavors. This data is then used to
+generate the web pages.
+</p>
+<p><code>foghorn</code> provides access to either of these data sources. If
+you choose <code>src = "website"</code> the data is scrapped from the
+CRAN website. If you only need to check a few packages, this is a
+good option. If you choose <code>src = "crandb"</code> the RDS files
+(about 20Mb) are downloaded first from the CRAN servers.
+</p>
+<p>When choosing <code>src = "crandb"</code> you can also specify the
+following options:
+</p>
+
+<ul>
+<li> <p>dest  a folder where to store the RDS files (<code>tempdir()</code>
+by default).
+</p>
+</li>
+<li> <p>protocol  either <code>https</code> (default) or <code>http</code>. 
+</p>
+</li>
+<li> <p>overwrite  when <code>FALSE</code> (default), if the file exists in
+<code>dest</code> then it will not be downloaded again. When
+<code>TRUE</code> the file gets downloaded every time it's
+needed.
+</p>
+</li>
+<li> <p>...  additional arguments that will be passed to
+<code><a href="../../httr/html/GET.html">GET</a></code> function to control how
+the file will be downloaded.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>a data frame that tabulates the number of CRAN flavors
+that return errors, warnings, notes, or OK for the packages.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Note that the <code>tools</code> package contains unexported
+functions that can be used to extract summary information from
+the check results. Specifically
+<code>tools:::sumarize_CRAN_check_status</code> is similar to
+<code>show_cran_results</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  if (curl::has_internet()) {
+    cran_results(pkg="MASS")
+  }
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>foghorn</em> version 1.2.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

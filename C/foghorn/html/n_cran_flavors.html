@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: The number of CRAN flavors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for n_cran_flavors {foghorn}"><tr><td>n_cran_flavors {foghorn}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The number of CRAN flavors</h2>
+
+<h3>Description</h3>
+
+<p>The CRAN flavors, the systems on which CRAN tests all packages regularly,
+are listed <a href="https://cran.r-project.org/web/checks/check_flavors.html">https://cran.r-project.org/web/checks/check_flavors.html</a>. To
+get the correct results, foghorn needs to know how many flavors CRAN uses.
+This function reads the number of flavors that CRAN currently uses, and
+caches it (per session, in the <code>tempdir()</code> folder). Arguments control
+caching, fall back, and default values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+n_cran_flavors(
+  use_cache = getOption("foghorn.use_cache", TRUE),
+  force_default = getOption("foghorn.force_default", FALSE),
+  n_flavors = getOption("foghorn.n_flavors", 12L)
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>use_cache</code></td>
+<td>
+<p>Should the value for the number of flavors be read to/
+written from the cache? (default: <code>TRUE</code>)</p>
+</td></tr>
+<tr valign="top"><td><code>force_default</code></td>
+<td>
+<p>Should the default value be used? (default: <code>FALSE</code>).
+When <code>TRUE</code>, the number of flavors is read from the Internet.</p>
+</td></tr>
+<tr valign="top"><td><code>n_flavors</code></td>
+<td>
+<p>What is the default number of flavors? (default: <code>12L</code>)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The default values for the arguments are read from options. Given that
+<code>n_cran_flavors</code> function is relied on internally to provide accurate
+information to the user, using options allows you to control how the
+function behaves directly. In general, the default values should not be
+changed. They are provided in case you have issues connecting to the web
+page listing the number of flavors, or you do not want to use caching.
+</p>
+<p>The options can be set:
+</p>
+
+<ul>
+<li><p> by session, using, for instance,<code>options("foghorn.use_cache" = FALSE)</code>.
+</p>
+</li>
+<li><p> permanently, by adding <code>options("foghorn.use_cache" = FALSE)</code> in your
+<code>.Rprofile</code>.
+</p>
+</li>
+<li><p> for a specific call, using the <code>withr</code> package:
+<code>withr::with_options(foghorn.use_cache = FALSE,  ...)</code>.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>The number of CRAN check flavors (as an integer).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>foghorn</em> version 1.2.3 <a href="00Index.html">Index</a>]</div>
+</body></html>
