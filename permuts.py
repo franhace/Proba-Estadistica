@@ -396,3 +396,34 @@ print("{}^{}≡{}({})".format(resto_a_mod_p[1], resto_n_mod_p_1[1], resto_p_1_mo
 ## Para resolver cosas de la forma 7^(13)X ≡ 5 (11)
 # 1) Resolvemos 7^(13) ≡ ??=c (11)
 # 2) Resolvemos cX ≡ 5 (11)
+
+
+
+
+# Para resolver ecs de la forma: aX congr mod b ###
+a =7
+b =6
+for i in range(10000):
+    b2 = b*i
+    plus_one = (b2+1)
+    if plus_one % a == 0:
+        print(int(plus_one/a))
+        break
+
+# # Series
+# a = 0
+# # a_n_mas_1 =
+# x = a**2 - a + 32
+# print(x)
+# print((24%7))
+
+# a = 7
+# b = 5
+# for i in range(10000):
+#     b2 = b**i
+#     plus_one = (b2+1)
+#     if plus_one % a == 0:
+#         print(int(plus_one/a))
+#         break
+r = ((3+11**527) % 13)
+print((3 ** r) % 13)
