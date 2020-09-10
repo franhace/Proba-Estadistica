@@ -401,8 +401,8 @@ print("{}^{}≡{}({})".format(resto_a_mod_p[1], resto_n_mod_p_1[1], resto_p_1_mo
 
 
 # Para resolver ecs de la forma: aX congr mod b ###
-a =7
-b =6
+a =10
+b =13
 for i in range(10000):
     b2 = b*i
     plus_one = (b2+1)
@@ -425,5 +425,6 @@ for i in range(10000):
 #     if plus_one % a == 0:
 #         print(int(plus_one/a))
 #         break
-r = ((3+11**527) % 13)
+r = ((2108**2020) % 286)
+print(r)
 print((3 ** r) % 13)
