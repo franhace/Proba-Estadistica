@@ -1,0 +1,231 @@
+---
+title: "Distribución de Poisson"
+author: "Marina Valdora"
+date: "7 de mayo de 2020"
+output: html_document
+---
+
+# Repaso
+
+**Definición de variable Poisson:**
+Decimos que una v.a tiene distribución de Poisson si su fpp es:
+
+$$p_X(k) =\frac{e^{-\lambda} \lambda^k}{k!}, \text{ para } k \geq 0 \text{ y } \lambda>0 \text{ fijo }$$.
+
+**Esperanza y varianza de una variable Poisson**
+
+Si $X\sim\mathcal P(\lambda)$ entonces $$E(X)=\lambda \text{ y } V(X) =\lambda.$$
+
+**Aproximaxión de la binomial por la Poisson:** Si $n$ es grande y p es pequeño (como referencia tomamos  $n\geq 100$, $p<0.01$ y $np<20$), entonces la fpp $B(n,p)$ se parece mucho a la $\mathcal P(np)$, es decir  $${n\choose k} p^k(1-p)^k \approx \frac{e^{-\lambda} \lambda^k}{k!}.$$
+
+
+**Proceso de Poisson:** Si $X_t, t>0$ es un proceso de Poisson de tasa $\lambda$ entonces entonces $X_t\sim \mathcal P(\lambda t)$, es decir,
+
+$$p_{X_t}(k) =\frac{e^{-\lambda t} (\lambda t)^k}{k!}.$$
+
+# Ejercicios
+
+
+1) (de Rice (2006))La administración de una universidad le asegura a un matemático que él tiene sólo
+una posibilidad en 10000 de encontrarse atrapado en un catastrófico ascensor en el
+edificio donde se encuentra el departamento de mátematicas. Si él va a trabajar 5 dı́as
+a la semana, 52 semanas al año, durante 10 años y siempre toma el ascensor. Cuál
+es la probabilidad de que nunca quede encerrado en el ascensor al subir? Cuál es la
+probabilidad de que se quede encerrado una vez al subir? Dos veces?. Suponer que los
+resultados de cada dı́a son mutuamente independientes.
+
+**Resolución**
+
+$X=$ cantidad de veces que se queda encerrado en el ascensor al subir.
+
+$$X \sim B(n,p)$$
+con $n=5*52*10$ y $p=1/10000$.
+
+```{r}
+n <- 5*52*10
+n
+p <- 1/10000
+p
+```
+
+Entonces $$X\sim B(2600, 1/10000)$$
+
+
+$$P(X=0)={2600 \choose{0}} (1/10000)^0 (1-1/10000)^{2600}= (1-1/10000)^{2600}$$
+```{r}
+(1-p)^n
+```
+
+```{r}
+dbinom(0, size=2600, prob = 1/10000)
+```
+
+```{r}
+n*p
+```
+
+La probabilidad calculada se puede aproximar por la  Poisson, es decir que,
+
+$$(1-1/10000)^{2600} \approx \frac{e^{-0.26}\lambda^0}{0!}=e^{-0.26} $$
+
+```{r}
+exp(-0.26)
+dpois(0,0.26)
+```
+
+
+$$p_X(1)=P(X=1)={2600 \choose{1}} (1/10000)^1 (1-1/10000)^{2600-1}$$
+$$ \approx \frac{e^{-0.26}\lambda^1}{1!}.$$
+```{r}
+dbinom(1, size=2600, prob =1/10000)
+dpois(1, 0.26)
+```
+
+
+$$p_X(2)=P(X=2)={2600 \choose{2}} (1/10000)^2 (1-1/10000)^{2600-2}$$
+
+
+
+$$ \approx \frac{e^{-0.26}\lambda^2}{2!}.$$
+```{r}
+dbinom(2, size=2600, prob =1/10000)
+dpois(2, 0.26)
+```
+
+
+
+2) El número de ciero tipo de bacterias en un estanque tiene una distribución Poisson de
+párametro $\lambda = 3$ bacterias por $cm^3$ de agua.
+(a) Calcule la probabilidad de que una muestra de 2 $cm^3$ contenga 4 o más bacterias.
+(b) Si ahora se toman en forma independiente 5 muestras de 2 $cm^3$ de volumen cada
+una. Cuál es la probabilidad de que exactamente 3 de ellas contengan 4 o más
+bacterias?
+
+**Resolución**
+
+
+$X_t=$ el número de bacterias en $t cm^3$ de agua.
+
+$$X_t \sim P(3t).$$
+
+a) $$X_2 \sim P(6)$$
+
+$$P(X_2 \geq 4) = 1- P(X_2 <4)=1-P(X_2\leq 3) = 1-F_{X_2}(3) $$
+```{r}
+1-ppois(q=3, lambda = 6)
+```
+
+b) $Y=$ cantidad de muestras que tienen 4 o más bacterias
+
+¿Que distribución tiene $Y$?
+
+Ensayo be Bernoulli: tomar una muestra y fijarme si tiene 4 o más bacterias.
+
+Exito: la muestra tiene 4 o más bacterias
+
+$$Y \sim B(5,0.8488)$$
+
+$$P(Y=3)={5 \choose 3} 0.8488^3 (1-0.8488)^{5-3}$$
+```{r}
+dbinom(3, size = 5, prob = 0.8488)
+```
+
+
+
+3) (de Rice, 2006) Las llamadas telefónicas que se reciben en una cierta residencia siguen un proceso de
+Poisson con parámetro $\lambda=2$ por hora.
+(a) Si Felipe toma una ducha de 10 minutos. Cuál es la probabilidad de que el télefono
+suene durante ese tiempo?
+(b) ¿Cuán larga puede ser la ducha si el quiere que la probabilidad de no recibir llamadas sea como mínimo 0.5?
+
+**Resolución**
+
+$X_t=$ número de llamadas que llegan a la residencia de Felipe t horas.
+
+$$X_t \sim P(2 t)$$
+a) $$X_{1/6} \sim P(1/3)$$ 
+$$P(X_{1/6} \geq 1)=1-P(X_{1/6}<1)=1-P(X_{1/6}=0)=1-e^{-1/3}$$
+```{r}
+1-exp(-1/3)
+1-dpois(0,1/3)
+```
+
+
+b) $$P(\text{no recibir llamadas en t minutos})\geq 0.5$$
+
+
+$$P(X_t = 0)= e^{-2t} \geq 0.5$$
+
+$$e^{-2t} \geq 0.5 \Leftrightarrow -2t \geq \ln(0.5) \Leftrightarrow t \leq -\ln(0.5)/2$$
+
+
+```{r}
+-log(0.5)/2 *60
+```
+
+Debe ser $t\leq 20.79$ minutos.
+
+4) Una empresa de medicina prepaga clasifica a sus afiliados en 2 categorı́as: riesgo bajo
+y riesgo elevado. Suponga que el número de llamadas al servicio de urgencia por año
+que tiene un afiliado de bajo riesgo sigue un proceso de Poisson de parámetro $\lambda = 0.2$
+mientras que el número de llamadas al servicio de urgencias que tiene un afiliado de
+riesgo elevado sigue un proceso de Poisson de parámetro $\lambda = 0.5$ .Suponga que la
+empresa tiene clasificados en la categorı́a riesgo elevado al 30% de sus afiliados.
+(a) Cuál es la probabilidad de que un afiliado elegido al azar no haga ninguna llamada
+al servicio de urgencias en los próximos cuatro años?
+(b) Si se elige un afiliado que no hizo ninguna llamada al servicio de urgencias en los
+últimos 4 años, cuál es la probabilidad de que pertenezca a la categorı́a de riesgo
+bajo
+
+
+**Resolución**
+
+Experimento: elegir un afiliado al azar
+$E=$ el afiliado no hace ninguna llamada en los próximos 4 años.
+
+$A=$ el afiliado es de riesgo alto
+
+$B=$ el afiliado es de riesgo bajo
+
+$$P(E)=P(E\cap A) + P(E\cap B) = P(E|A)P(A)+P(E|B)P(B)$$
+
+$X_t=$ el número de llamadas que hace un paciente de riesgo bajo en t  años
+
+$$X_t \sim P(0.2 t)$$
+
+$Y_t =$ el número de llamadas que hace un paciente de riesgo alto en t años
+
+$$Y_t \sim P(0.5 t)$$
+
+$$P(E|A)=P(Y_4 = 0) = e^{-2}$$
+$$P(E|B)=P(X_4=0) = e^{-0.8}$$
+
+Entonces
+
+$$P(E)=e^{-2} 0.3 + e^{-0.8} 0.7 = 0.3551$$
+
+
+
+```{r}
+exp(-2)*0.3+exp(-0.8)*0.7
+```
+
+
+
+b) $$P(B|E) = \frac{P(B\cap E)}{P(E)}=\frac{P(E|B) P(B)}{P(E)}$$
+
+$$= \frac{ e^{-0.8} 0.7}{e^{-2} 0.3 + e^{-0.8} 0.7}$$
+
+$$=0.8857$$
+
+```{r}
+exp(-0.8)*0.7/(exp(-2)*0.3+exp(-0.8)*0.7)
+```
+
+
+
+
+
+**Referencias**
+
+Rice, J. A. (2006). Mathematical statistics and data analysis. Cengage Learning.
