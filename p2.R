@@ -90,3 +90,6 @@ lista
 ppois(4,2,5)
 ppois(6,5)
 
+# ej 20
+dpois(0,2)
+dbinom(1,4,dpois(0,2))
