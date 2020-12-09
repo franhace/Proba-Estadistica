@@ -1,0 +1,92 @@
+# EJ 1 
+# Proba puntual y FDA
+
+x <- c(0,1,2,3)
+pX <- rep(0,4)
+
+
+pX[1] <- 11*11*11/(15*15*15)
+pX[2] <- 3*4*11*11/(15*15*15)
+pX[3] <- 3*4*4*11/(15*15*15)
+pX[4] <- 4*4*4/(15*15*15)
+
+FX <- c(pX[1], pX[1]+pX[2], pX[1]+pX[2]+pX[3], pX[1]+pX[2]+pX[3]+pX[4])
+FX
+
+plot(x,pX, ylim=c(0,1))
+points(x, FX, ylim=c(0,1), col=2)
+
+# Ej 2
+Xprima <- c(rep(1,3), rep(3,1), rep(6,2), rep(12, 4))
+sample(Xprima, 5, replace = TRUE)
+
+muestra <- sample(Xprima, 10000, replace = TRUE)
+length(muestra[muestra == 1])/10000
+vectorproba <- c(0.3,0.1,0.2,0.4)
+rango <- c(1,3,6,12)
+muestra <- sample(rango, 5, replace=TRUE, prob=vectorproba)
+
+muestra10000 <- sample(rango, 10000, replace=TRUE, prob=vectorproba)
+k <- 1
+proba <- rep(0,4)
+for (r in rango){
+  proba[k] <- length(muestra10000[muestra10000==r])/10000
+  k <- k+1
+}
+proba
+
+# Ej 8 ( Binomial )
+pbinom(20,25,0.7)
+pbinom(24,25,0.7)-pbinom(19,25,0.7)
+sum(dbinom(0:20,25,0.7))
+sum(dbinom(20:24,25,0.7))
+sum(dbinom(20,25,0.7))+sum(dbinom(21,25,0.7))+sum(dbinom(22,25,0.7))+sum(dbinom(23,25,0.7))+sum(dbinom(24,25,0.7))
+25*0.7
+25*07*0.3
+
+# Ej 11 (HG)  
+
+dhyper(6, 35, 15, 10)
+dbinom(6,10,35/50)
+
+# Ej 12 (Ge)
+1-pgeom(3, 1/19)
+1-sum(dgeom(0:3,1/19))
+
+# Ej 15 (Poisson)
+1-ppois(3,2)
+1-ppois(4,2)
+rango <- c(0,1,2,3,4)
+for (i in range(4)) {
+  x<-ppois(i,2)
+  x
+}
+
+
+# ej 16
+1-dbinom(0,1000,0.001)
+# si n->inf y p-> 0 Bi = Pois(n*p)
+1-ppois(0,1)
+1-(1/exp(1))
+dpois(3,1)
+dbinom(3,1000,0.001)
+
+
+# ej 17
+dpois(0,4)
+vec<-0:6
+for (i in 0:6){
+  lista<-c(0,6)
+  pois<-dpois(i,4)
+  print(i)
+  print(pois)
+  lista[i]<-pois
+}
+table(vec,lista)
+length(lista)
+lista
+
+# ej 19 (POiss)
+ppois(4,2,5)
+ppois(6,5)
+
