@@ -130,12 +130,38 @@ pbinom(3,15,p)
 
 ###############
 
-# Ej 11 (HG)  
-
+# Ej 12 (HG)  
+# HG(N,B,m)
+# a)
+N<-50 # N: num total
+k<-6 # x cuantas de las buenas tomamos
+B<-35 # m total de buenas
+n<-N-B # n total de malas
+m<-10 # cuantas sacamos del total
+hg<-dhyper(k,B,n,m)
 dhyper(6, 35, 15, 10)
-dbinom(6,10,35/50)
 
-# Ej 12 (Ge)
+# b)
+# Si N->inf podemos aprox con Binomial de parametros
+# Bi(m,B/N)
+B<-B*10
+N<-N*10
+bin<-dbinom(6,m,B/N)
+# error en aprox
+error<-(hg-bin)/(hg*100)
+hg-bin
+
+# c)
+eXHG<-m*B/N
+eXB<-m*B/N
+
+vXHG<-m*(B/N)*((N-B)/n)*((N-m)/(N-1))
+vXB<-(m*B/N)*(1-B/N)
+
+
+###############
+
+# Ej 13 (Ge)
 1-pgeom(3, 1/19)
 1-sum(dgeom(0:3,1/19))
 
