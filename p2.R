@@ -103,13 +103,32 @@ a<-plot(nums, log(dbinom(nums, n, p)))
 ####################
 
 # Ej 9 ( Binomial )
-pbinom(20,25,0.7)
-pbinom(24,25,0.7)-pbinom(19,25,0.7)
-sum(dbinom(0:20,25,0.7))
-sum(dbinom(20:24,25,0.7))
-sum(dbinom(20,25,0.7))+sum(dbinom(21,25,0.7))+sum(dbinom(22,25,0.7))+sum(dbinom(23,25,0.7))+sum(dbinom(24,25,0.7))
-25*0.7
-25*07*0.3
+n<-25
+p<-0.7
+# a)
+#  i) 
+dbinom(20,n, p)
+#  ii)
+pbinom(24,n, p)-pbinom(19,n, p)
+sum(dbinom(20:24,n, p))
+# b)
+(eXB<-n*p)
+eXB
+(vXb<-(n*p*(1-p)))
+
+###############
+
+# Ej 10
+p<-0.2
+# a)
+dbinom(0,15,p)
+# b)
+sum(dbinom(0:3, 15, p))
+pbinom(3,15,p)
+# c)
+1-pbinom(6,15,p)
+
+###############
 
 # Ej 11 (HG)  
 
