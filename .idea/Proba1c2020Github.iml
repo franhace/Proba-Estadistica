@@ -11,6 +11,11 @@
       <excludeFolder url="file://$MODULE_DIR$/Practica/9-Tests/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/R/Clase 1 (14-04) Introducción al Análisis de Datos en R-20200422/novel-corona-virus-2019-dataset" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Practica/1-LPT-BAYES/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Practica/3-VAC/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Practica/4/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Practica/5-LGN-TCL-Tcheby/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Practica/Radicionales/.ipynb_checkpoints" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (Proba)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

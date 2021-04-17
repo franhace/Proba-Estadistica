@@ -16,6 +16,8 @@ FX
 plot(x,pX, ylim=c(0,1))
 points(x, FX, ylim=c(0,1), col=2)
 
+#########################
+
 # Ej 2
 Xprima <- c(rep(1,3), rep(3,1), rep(6,2), rep(12, 4))
 sample(Xprima, 5, replace = TRUE)
@@ -34,6 +36,56 @@ for (r in rango){
   k <- k+1
 }
 proba
+
+#################### 
+
+# Ej 3
+# a) graficar fpp
+x <- c(0,1,2,3,4)
+pX <- rep(0,5)
+x
+pX
+pX[1] <- (10*9*8*7)/(15*14*13*12)
+pX[2] <- choose(5,1)*(4*11*10*9*8)/(15*14*13*12*11)
+pX[3] <- choose(5,2)*(4*3*11*10*9)/(15*14*13*12*11)
+pX[4] <- choose(5,3)*(4*3*2*11*10)/(15*14*13*12*11)
+pX[5] <- choose(5,4)*(4*3*2*11)/(15*14*13*12*11)
+library(MASS)
+f = function(x, den) {paste0(round(x * den), "/", den)}
+f(pX, 91)
+pX
+plot(x,pX)
+
+# b) P(x>=W) = 1 - F(x<W) = 1 - F(x<W-)
+# W = 2 -> 1-F(2-) -> 1-F(1)
+1-(pX[1]+pX[2])
+
+# c)
+library(MASS)
+fractions(pX)
+fractions((2/13)+40/91)
+
+###################
+
+# Ej 6
+# a)
+p1<-(2*3*2)/(6*5*4)
+p2<-(4*4*3)/(6*5*4)
+p3<-fractions(2*(2*2*3)/(6*5*4))
+p3
+p4<-(4*2)/(6*5)
+fractions(p4)
+p4
+p5<-(2*2)/(6*5*4)
+pV <- c(p1+p2,p3+p4,p5)
+fractions(pV)
+# b)
+xs<-c(0,1,2)
+eX<-(sum(pV*(xs)))
+eX2<-(sum(pV*(xs**2)))
+vX<-(eX2-(eX**2))
+fractions(vX)
+###################
 
 # Ej 8 ( Binomial )
 pbinom(20,25,0.7)
