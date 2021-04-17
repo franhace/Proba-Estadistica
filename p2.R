@@ -87,7 +87,22 @@ vX<-(eX2-(eX**2))
 fractions(vX)
 ###################
 
-# Ej 8 ( Binomial )
+# EJ 7 - Bit de paridad
+#a)
+
+1-dbinom(0,7,0.01)
+1-dbinom(0,8,0.01)
+
+# c)
+nums<-seq(2,8,by=2)
+n<-8
+p<-0.01
+sum(dbinom(nums,n,p))
+a<-plot(nums, log(dbinom(nums, n, p)))
+
+####################
+
+# Ej 9 ( Binomial )
 pbinom(20,25,0.7)
 pbinom(24,25,0.7)-pbinom(19,25,0.7)
 sum(dbinom(0:20,25,0.7))
