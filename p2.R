@@ -186,6 +186,7 @@ dnbinom(5,3,p)
 (1/2)*((0.9)**5+(0.95)**5)
 # c)
 (dnbinom(10,2,0.1)+dnbinom(10,2,0.05))*(1/2)
+
 ###############
 
 # Ej 16 (Poisson)
@@ -210,6 +211,7 @@ for (i in (rangok)) {
   } 
 }
 
+###############
 
 # ej 16
 1-dbinom(0,1000,0.001)
@@ -220,30 +222,50 @@ dpois(3,1)
 dbinom(3,1000,0.001)
 
 
+###############
+
 # Ej 17 - Aprox de la Binomial por Poisson
 # n-> inf y p-> 0 Bi(n,p) == P(n*p)
 n<-1000
 p<-0.001
+# a) 
 1-dbinom(0,n,p)
 1-dpois(0,n*p)
-# ej 17
-dpois(0,4)
-vec<-0:6
-for (i in 0:6){
-  lista<-c(0,6)
-  pois<-dpois(i,4)
-  print(i)
-  print(pois)
-  lista[i]<-pois
-}
-table(vec,lista)
-length(lista)
-lista
+# b)
+dbinom(3,n,p)
+dpois(3,n*p)
 
-# ej 19 (POiss)
-ppois(4,2,5)
+###############
+
+# Ej 18 - Pois
+# a)
+lista<-c(0:6)
+lista
+dpois(lista,4)
+# b)
+eY<-lista*dpois(lista,4)
+sum(eY)-100
+
+###############
+
+# ej 19 - Pois con Theta
+# a)
+ppois(4,5/2) # sum(dpois(0:4,2.5))
+# b)
 ppois(6,5)
+dpois(6,5) # ppois(6,5)-ppois(5,5)
+1-ppois(4,5)
+ppois(6,5)-ppois(2,5)
+ppois(5,5)-ppois(3,5)
+(ppois(6,5)-ppois(3,5))/(1-ppois(3,5))
+# c)
+
+###############
 
 # ej 20
-dpois(0,2)
+# a)
+dpois(0,4)
+# b)
 dbinom(1,4,dpois(0,2))
+
+###############
