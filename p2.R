@@ -191,12 +191,23 @@ dnbinom(5,3,p)
 # Ej 16 (Poisson)
 # a)
 1-ppois(3,2)
+# b)
 1-ppois(4,2)
-seq(0:5)
+# c)
 rango <- c(0,1,2,3,4)
-for (i in range(4)) {
-  x<-ppois(i,2)
-  x
+dpois(rango, 2)
+# d)
+# jugamos con el k y vemos cuando se supera el umbral
+# en este caso 0.99
+rangok<-0:10
+ppois(rangok,2)
+# forma alternativa 
+for (i in (rangok)) {
+  if (ppois(i,2) > 0.99){
+    print("Eureka!")
+    print(i)
+    break
+  } 
 }
 
 
@@ -209,6 +220,12 @@ dpois(3,1)
 dbinom(3,1000,0.001)
 
 
+# Ej 17 - Aprox de la Binomial por Poisson
+# n-> inf y p-> 0 Bi(n,p) == P(n*p)
+n<-1000
+p<-0.001
+1-dbinom(0,n,p)
+1-dpois(0,n*p)
 # ej 17
 dpois(0,4)
 vec<-0:6
