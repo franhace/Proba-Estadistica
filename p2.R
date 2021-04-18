@@ -162,12 +162,37 @@ vXB<-(m*B/N)*(1-B/N)
 ###############
 
 # Ej 13 (Ge)
-1-pgeom(3, 1/19)
-1-sum(dgeom(0:3,1/19))
+# a) 
+p<-2/38
+1-pgeom(3,p)
+1-sum(dgeom(0:3, p))
+1-pnbinom(3,1,p) # es igual a BN(r,p) donde r = 1
+# c)
+# idem
+eXG<-1/p
+vXG<-(1-p)/p**2
 
-# Ej 15 (Poisson)
+###############
+
+# Ej 14 dnbinom(k,r,p)
+dnbinom(5,3,p)
+
+###############
+
+# Ej 15
+# a)
+(1/2)*(1-pgeom(5,0.1)+1-(pgeom(5,0.05)))
+(1/2)*(1-sum(dgeom(0:5,0.1))+1-sum(dgeom(0:5,0.05)))
+(1/2)*((0.9)**5+(0.95)**5)
+# c)
+(dnbinom(10,2,0.1)+dnbinom(10,2,0.05))*(1/2)
+###############
+
+# Ej 16 (Poisson)
+# a)
 1-ppois(3,2)
 1-ppois(4,2)
+seq(0:5)
 rango <- c(0,1,2,3,4)
 for (i in range(4)) {
   x<-ppois(i,2)
