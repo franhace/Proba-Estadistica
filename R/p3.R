@@ -1,10 +1,17 @@
-# 6
+# 8
+# a. b. c. d. e.
+pnorm(2)-pnorm(0)
+2*(pnorm(2.5)-1/2)
+1-(1-pnorm(1.37))
+qnorm(0.98)
+qnorm(1.9/2)
+# f
 qnorm(1-0.1)
 qnorm(1-0.05)
 qnorm(1-0.025)
 qnorm(1-0.01)
 
-# 7
+# 9
 mu<-5
 sd<-sqrt(0.25)
 (5.5-mu)/sd
@@ -23,4 +30,10 @@ log2(0.01)
 pnorm(0.1/0.3)-pnorm(0.5)
 1-(pnorm(0.5)*0.35-(1-pnorm(0.1/0.3))*0.65)
 
-
+nf<-51
+entrega1<-7.5
+entrega2<-5
+entregas<-entrega1+entrega2+ 6*5 # max 70
+tot = nf+ entregas*(10/7)/2
+tot
+tot  > 80
