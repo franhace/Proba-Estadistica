@@ -15,13 +15,21 @@ qnorm(1-0.01)
 mu<-5
 sd<-sqrt(0.25)
 (5.5-mu)/sd
+# a
 pnorm((5.5-mu)/sd)-(1-pnorm((4.75-mu)/sd*-1))
-2*(pnorm(5.25,5,0.25)-0.5)
-pnorm(20.5)-pnorm(0.5)
+# b
+1-pnorm((5.25-5)/0.5)+pnorm((-5.25-5)/0.5)
+# c
 qnorm(1.9/2)/2
-qnorm(0.9)*0.5+5
+# d
+(qnorm(0.9)/2)+5
 
-# 9
+# 10 
+qnorm(0.58)
+qnorm(0.38)
+qnorm(0.04)
+qnorm(0.38+0.58)
+# 11
 qnorm(0.75)-qnorm(0.25)
 log2(0.01)/log2(4/5)
 log2(0.01)
