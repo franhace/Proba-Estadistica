@@ -86,6 +86,11 @@ integrar <- function(fx, lower, upper) {
   return(integrate(fx, lower, upper)$value)
 }
 
+integrado<-function(x) {x}
+b<-10.76
+a<-10.35
+integrate(integrado,lower = a, upper = b)
+
 # Ex generica
 ex_generica <- function(fx, lower, upper) {
   return(integrar(function(x) {x*fx(x)}, lower, upper))
@@ -148,6 +153,13 @@ b<-1-punif(q = 29, min = 25, max = 30)
 pa<-0.4
 pb<-1-pa
 a*pa+b*pb
+
+# 3
+a<-1-punif(7,0,10)
+b<-1-pexp(7,1/6)
+a*0.3+b*0.7
+0.3*5+0.7*6
+
 
 ## NOTAS
 nf<-51
