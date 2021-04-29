@@ -130,6 +130,7 @@ b+c
 a
 
 # parcialitos
+# 1
 a<-1-pnorm(1/5)
 b<-pnorm(1.7)-a
 c<-1-(a+b)
@@ -140,6 +141,13 @@ xa*xb*xc
 x<-c(9,12,3) # cant que queremos de cada
 p<-c(a,b,c) # proba de cada evento
 dmultinom(x,24,p) # Multinomial
+
+# 2
+a<-1-pnorm((29-27)/4)
+b<-1-punif(q = 29, min = 25, max = 30)
+pa<-0.4
+pb<-1-pa
+a*pa+b*pb
 
 ## NOTAS
 nf<-51
