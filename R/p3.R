@@ -173,7 +173,27 @@ dbinom(5,5,0.51652)
 nf<-51
 entrega1<-7.5
 entrega2<-5
-entregas<-entrega1+entrega2+ 6*5 # max 70
-tot = nf+ entregas*(10/7)/2
-tot
-tot  > 80
+entrega3<-2.5
+posibles_notas<-seq(1, 10, by=0.1)
+entregas<-entrega1+entrega2+entrega3 
+cantidad_entregas_faltantes<-4
+entregas
+for (i in posibles_notas) {
+  valor_final<-entregas+i*cantidad_entregas_faltantes
+  if ((valor_final)>35) {
+    print(i)
+    print( valor_final)
+    break
+  }
+}
+promedio<-seq(30,100)
+for (j in promedio) {
+  tot = nf+ j*(10/7)/2
+  if (tot>80) {
+    print(j/7)
+    print(j)
+    break
+  }
+}
+(j-entregas)/4
+
