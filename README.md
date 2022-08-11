@@ -1,4 +1,5 @@
-# Proba-Estadistica
+# Material de Probabilidad y Estadística para Computacion
+
 
 ## 1. Probabilidad: 
 Experimentos aleatorios. Espacios muestrales. Eventos o sucesos. Frecuencia relativa, sus propiedades. Axiomas de probabilidad. Propiedades. Espacios muestrales finitos. Espacios de equiprobabilidad. Probabilidad condicional. Regla del Producto. Partición de un espacio muestral. Teorema de la Probabilidad Total. Teorema de Bayes. Independencia de dos eventos. Independencia de dos o más eventos.

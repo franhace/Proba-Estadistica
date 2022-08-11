@@ -1,8 +1,10 @@
 LeJ/
 novel-corona-virus-2019-dataset/
-./.idea/
+.ipynb_checkpoints
+.idea
+C
 calc.py
 *checkpoints
-R2/
+R/R2/
 venv
 Parciales/Choice/
